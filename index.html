@@ -42,63 +42,65 @@
 </head>
 
 <style>
-/* Ensure the images are larger */
 .item {
     display: flex;
     position: relative;
-    width: 600px; /* Matches image width */
-    height: 300px; /* Matches image height */
+    width: 600px; 
+    height: 100px; 
     justify-content: center;
     align-items: center;
     text-align: center;
     cursor: pointer;
-    overflow: hidden; /* Prevents content from overflowing */
+    overflow: hidden; 
 }
 
 
-/* Ensure images fit well inside their containers */
 .item img {
-    width: 100%; /* Ensure it fills `.item` */
-    height: 100%; /* Ensure it fills `.item` */
-    object-fit: contain; /* Prevents distortion */
-    border-radius: 8px; /* Keeps smooth edges */
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
 }
 
-/* Styling for toggled text */
 .text-label {
     width: 100%;
     height: 100%;
     background-color: white;
     color: black;
-    font-size: 18px; /* Slightly larger text */
+    font-size: 20px; 
     font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     font-family: 'Noto Sans', serif;
-    padding: 15px;
+    /* padding: 15px; */
     text-align: center;
-    border: 2px solid black; /* Adds border to the text box */
     border-radius: 8px;
 }
 
 .results-carousel {
     display: flex;
     overflow-x: auto;
-    gap: 40px; /* Increased spacing between images */
-    padding: 20px; /* Ensures no tight layout */
-    white-space: nowrap; /* Prevents stacking */
-    scroll-snap-type: x mandatory; /* Enables smooth scrolling */
+    gap: 3px;
+    padding: 20px; 
+    white-space: nowrap; 
+    scroll-snap-type: x mandatory; 
 }
 
 .results-carousel .item {
-    flex: 0 0 auto; /* Prevents items from resizing */
-    width: 600px; /* Matches `.item` */
-    height: 300px; /* Matches `.item` */
-    scroll-snap-align: center; /* Keeps alignment in scrolling */
+    flex: 0 0 auto; 
+    width: 600px; 
+    height: 300px; 
+    scroll-snap-align: center; 
 }
 
+.results-carousel, 
+.slider-container, 
+.item {
+    outline: none !important; /* Removes any focus outline */
+    border: none !important; /* Removes any default borders */
+    box-shadow: none !important; /* Ensures no shadow appears */
+}
 
 </style>
 
@@ -119,28 +121,7 @@
           <i class="fas fa-home"></i>
       </span>
       </a>
-
-      <!-- <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-      </div> -->
     </div>
-
   </div>
 </nav>
 
@@ -319,12 +300,11 @@
         </div>
       </div>
     </div>
-    <br>
-    <h2 class="subtitle has-text-centered">
-      <span class="try">Try</span> solving our benchmark above (click on the image to reveal the correct answer).
-    </h2>
   </div>
 </section>
+<h2 class="subtitle has-text-centered">
+  <span class="try">Scroll to </span> see samples of our benchmark. Click on the image to reveal the correct answer.
+</h2>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
