@@ -42,69 +42,66 @@
 </head>
 
 <style>
-.results-carousel {
-    display: flex;
-    flex-wrap: wrap; /* Ensures items go to the next line if needed */
-    justify-content: center;
-    align-items: flex-start;
-    max-width: 100%;
-    overflow: visible;
-}
-
+/* Ensure the images are larger */
 .item {
-  /* width: 600px;
-    height: 300px; */
     display: flex;
     position: relative;
-    min-height: 100px;
-    visibility: visible;
-    opacity: 1;
-    color: black; /* Ensures text is visible */
-    font-size: 20px; /* Makes text larger */
-    font-weight: bold; /* Makes text stand out */
+    width: 600px; /* Matches image width */
+    height: 300px; /* Matches image height */
     justify-content: center;
     align-items: center;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden; /* Prevents content from overflowing */
 }
 
 
+/* Ensure images fit well inside their containers */
 .item img {
-    width: 100%; 
-    height: 100%;
-    object-fit: contain; 
-    display: block;
+    width: 100%; /* Ensure it fills `.item` */
+    height: 100%; /* Ensure it fills `.item` */
+    object-fit: contain; /* Prevents distortion */
+    border-radius: 8px; /* Keeps smooth edges */
 }
 
-.image-text {
-    display: none;
+/* Styling for toggled text */
+.text-label {
     width: 100%;
     height: 100%;
-    background: white;
+    background-color: white;
     color: black;
-    font-size: 14px;
-    text-align: center;
-    padding: 30px;
-    position: absolute;
-    top: 0;
-    left: 0;
+    font-size: 18px; /* Slightly larger text */
+    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Noto Sans', serif;
+    padding: 15px;
+    text-align: center;
+    border: 2px solid black; /* Adds border to the text box */
+    border-radius: 8px;
 }
 
-@media (max-width: 768px) {
-    .results-carousel {
-        flex-direction: column; 
-        align-items: center; 
-    }
+.results-carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 40px; /* Increased spacing between images */
+    padding: 20px; /* Ensures no tight layout */
+    white-space: nowrap; /* Prevents stacking */
+    scroll-snap-type: x mandatory; /* Enables smooth scrolling */
+}
 
-    .item {
-        width: 100%; 
-    }
+.results-carousel .item {
+    flex: 0 0 auto; /* Prevents items from resizing */
+    width: 600px; /* Matches `.item` */
+    height: 300px; /* Matches `.item` */
+    scroll-snap-align: center; /* Keeps alignment in scrolling */
 }
 
 
 </style>
+
 <body>
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -264,52 +261,95 @@
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-1"">
-          <img src="./static/images/samplequestions/Resize2XY_15_0_single.jpg" alt="Image 1" />
+        <div class="item item-1" onclick="toggleContent(this)">
+          <img src="./static/images/samplequestions/Resize2XY_15_0_single.jpg" 
+          alt="Objects become bigger. Correct: (B)." data-text="Objects become bigger. Correct: (B).">
         </div>
         <div class="item item-2">
-          <img src="./static/images/samplequestions/Resize0.5XY_25_0_single.jpg" alt="Image 2" />
+          <img src="./static/images/samplequestions/Resize0.5XY_25_0_single.jpg" 
+          alt="Objects become smaller. Correct: (C)." data-text="Objects become smaller. Correct: (C)."/>
         </div>
         <div class="item item-3">
-          <img src="./static/images/samplequestions/ColourRed_33_2_single.jpg" alt="Image 3" />
+          <img src="./static/images/samplequestions/ColourRed_33_2_single.jpg" 
+          alt="Objects turn red. Correct: (A)." data-text="Objects turn red. Correct: (A)."/>
         </div>
         <div class="item item-4">
-          <img src="./static/images/samplequestions/ColourGreen_41_1_single.jpg" alt="Image 4" />
+          <img src="./static/images/samplequestions/ColourGreen_41_1_single.jpg"
+          alt="Objects turn green. Correct: (B)." data-text="Objects turn green. Correct: (B)."/>
         </div>
         <div class="item item-5">
-          <img src="./static/images/samplequestions/ColourBlue_27_0_single.jpg" alt="Image 5" />
+          <img src="./static/images/samplequestions/ColourBlue_27_0_single.jpg" 
+          alt="Objects turn blue. Correct: (A)." data-text="Objects turn blue. Correct: (A)."/>
         </div>
         <div class="item item-6">
-          <img src="./static/images/samplequestions/Counting+1_47_2_single.jpg" alt="Image 6" />
+          <img src="./static/images/samplequestions/Counting+1_47_2_single.jpg"
+          alt="Objects increase by 1. Correct: (A)." data-text="Objects increase by 1. Correct: (A)."/>
         </div>
         <div class="item item-7">
-          <img src="./static/images/samplequestions/Counting-1_39_1_single.jpg" alt="Image 7" />
+          <img src="./static/images/samplequestions/Counting-1_39_1_single.jpg" 
+          alt="Objects decrease by 1. Correct: (C)." data-text="Objects decrease by 1. Correct: (C)."/>
         </div>
         <div class="item item-8">
-          <img src="./static/images/samplequestions/Counting+2_16_1_single.jpg" alt="Image 8" />
+          <img src="./static/images/samplequestions/Counting+2_16_1_single.jpg" 
+          alt="Objects increase by 2. Correct: (B)." data-text="Objects increase by 2. Correct: (B)."/>
         </div>
         <div class="item item-9">
-          <img src="./static/images/samplequestions/Counting-2_42_2_single.jpg" alt="Image 9" />
+          <img src="./static/images/samplequestions/Counting-2_42_2_single.jpg" 
+          alt="Objects decrease by 2. Correct: (C)." data-text="Objects decrease by 2. Correct: (C)."/>
         </div>
         <div class="item item-10">
-          <img src="./static/images/samplequestions/ReflectY_17_1_single.jpg" alt="Image 10" />
+          <img src="./static/images/samplequestions/ReflectY_17_1_single.jpg" 
+          alt="Objects are reflected on the y-axis. Correct: (B)." data-text="Objects are reflected on the y-axis. Correct: (B)."/>
         </div>
         <div class="item item-11">
-          <img src="./static/images/samplequestions/ReflectX_35_1_single.jpg" alt="Image 11" />
+          <img src="./static/images/samplequestions/ReflectX_35_1_single.jpg" 
+          alt="Objects are reflected on the x-axis. Correct: (B)." data-text="Objects are reflected on the x-axis. Correct: (B)."/>
         </div>
         <div class="item item-12">
-          <img src="./static/images/samplequestions/2DRotation+90_27_1_single.jpg" alt="Image 12" />
+          <img src="./static/images/samplequestions/2DRotation+90_27_1_single.jpg" 
+          alt="Objects are rotated 90 degrees clockwise. Correct: (B)." data-text="Objects are rotated 90 degrees clockwise. Correct: (B)."/>
         </div>
         <div class="item item-13">
-          <img src="./static/images/samplequestions/2DRotation-90_0_2_single.jpg" alt="Image 13" />
+          <img src="./static/images/samplequestions/2DRotation-90_0_2_single.jpg" 
+          alt="Objects are rotated 90 degrees anticlockwise. Correct: (B)." data-text="Objects are rotated 90 degrees anticlockwise. Correct: (B)."/>
         </div>
         <div class="item item-14">
-          <img src="./static/images/samplequestions/2DRotation180_28_2_single.jpg" alt="Image 14" />
+          <img src="./static/images/samplequestions/2DRotation180_28_2_single.jpg" 
+          alt="Objects are rotated 180 degrees. Correct: (B)." data-text="Objects are rotated 180 degrees. Correct: (B)."/>
         </div>
       </div>
     </div>
+    <br>
+    <h2 class="subtitle has-text-centered">
+      <span class="try">Try</span> solving our benchmark above (click on the image to reveal the correct answer).
+    </h2>
   </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".item").forEach(item => {
+        item.addEventListener("click", function () {
+            let img = this.querySelector("img");
+            let text = this.querySelector(".text-label");
+
+            if (img) {
+                console.log("Image clicked, switching to text:", img.alt);
+                let imageSrc = img.src;
+                let altText = img.alt;
+                let textContent = img.getAttribute("data-text");
+
+                this.innerHTML = `<div class="text-label" data-image="${imageSrc}" data-alt="${altText}">${textContent}</div>`;
+            } else if (text) {
+                let imageSrc = text.getAttribute("data-image");
+                let altText = text.getAttribute("data-alt");
+
+                this.innerHTML = `<img src="${imageSrc}" alt="${altText}" data-text="${altText}">`;
+            }
+        });
+    });
+});
+</script>
   
 
 <section class="section" style="margin-bottom: 200px;">
