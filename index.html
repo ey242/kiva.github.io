@@ -40,6 +40,71 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 </head>
+
+<style>
+.results-carousel {
+    display: flex;
+    flex-wrap: wrap; /* Ensures items go to the next line if needed */
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 100%;
+    overflow: visible;
+}
+
+.item {
+  /* width: 600px;
+    height: 300px; */
+    display: flex;
+    position: relative;
+    min-height: 100px;
+    visibility: visible;
+    opacity: 1;
+    color: black; /* Ensures text is visible */
+    font-size: 20px; /* Makes text larger */
+    font-weight: bold; /* Makes text stand out */
+    justify-content: center;
+    align-items: center;
+}
+
+
+.item img {
+    width: 100%; 
+    height: 100%;
+    object-fit: contain; 
+    display: block;
+}
+
+.image-text {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: white;
+    color: black;
+    font-size: 14px;
+    text-align: center;
+    padding: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .results-carousel {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .item {
+        width: 100%; 
+    }
+}
+
+
+</style>
 <body>
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -81,7 +146,6 @@
 
   </div>
 </nav>
-
 
 <section class="hero">
   <div class="hero-body">
@@ -192,11 +256,15 @@
   </div>
 </section>
 
+<br>
+<br>
+<br>
+
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-1">
+        <div class="item item-1"">
           <img src="./static/images/samplequestions/Resize2XY_15_0_single.jpg" alt="Image 1" />
         </div>
         <div class="item item-2">
@@ -242,7 +310,7 @@
     </div>
   </div>
 </section>
-
+  
 
 <section class="section" style="margin-bottom: 200px;">
   <div class="container is-max-desktop">
