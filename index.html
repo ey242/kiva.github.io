@@ -207,7 +207,7 @@
               </span>
               <!-- Google Colab Link. -->
               <span class="link-block">
-                <a href="https://colab.research.google.com/drive/1Z2Xryz90WjH5CSWExh8JFBhHLGtK5V2c?usp=sharing"
+                <a href="https://colab.research.google.com/drive/1m0pZHHZlG9D6sTJyqAVlAdKHe4UNmSHY?usp=sharing"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="fa-solid fa-code-compare"></i>
@@ -226,9 +226,10 @@
 <section class="teaser">
   <div class="container is-max-desktop">
     <div class="body" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-      <img id="teaser" src="./static/images/figure1_analogies.jpg" alt="Figure 1 Analogies" style="width:65%; height: auto;">
+      <img id="teaser" src="./static/images/analogies.png" alt="Figure 1 Analogies" style="width:65%; height: auto;">
       <h2 class="subtitle has-text-centered">
-        <span class="kiva">KiVA</span> involves analogical reasoning in five basic visual domains solvable by young children.
+        <span class="kiva">Our benchmark</span> evaluates analogical reasoning in five basic visual domains. <strong>KiVA</strong> demands generalization to a different object and is solvable by young children.
+        <strong>KiVA-adults</strong> demands further generalization, to a different object and to a different starting value, and is solvable by adults.
       </h2>
     </div>
   </div>
@@ -303,7 +304,73 @@
   </div>
 </section>
 <h2 class="subtitle has-text-centered">
-  <span class="try">Scroll to </span> see samples of our benchmark. Click on the image to reveal the correct answer.
+  <span class="try">Scroll to</span> see samples of KiVA. <br>Click on the image to reveal the correct answer.
+</h2>
+<br>
+<br>
+<br>
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-1" onclick="toggleContent(this)">
+          <img src="./static/images/samplequestions_adults/Resize2X_13_0.jpg" 
+          alt="Objects become wider. Correct: (B)." data-text="Objects become bigger. Correct: (B).">
+        </div>
+        <div class="item item-2">
+          <img src="./static/images/samplequestions_adults/Resize2Y_23_1.jpg" 
+          alt="Objects become taller. Correct: (A)." data-text="Objects become smaller. Correct: (A)."/>
+        </div>
+        <div class="item item-4">
+          <img src="./static/images/samplequestions_adults/ColourGreen_41_1.jpg"
+          alt="Objects turn green. Correct: (A)." data-text="Objects turn green. Correct: (A)."/>
+        </div>
+        <div class="item item-5">
+          <img src="./static/images/samplequestions_adults/ColourBlue_27_0.jpg" 
+          alt="Objects turn blue. Correct: (C)." data-text="Objects turn blue. Correct: (C)."/>
+        </div>
+        <div class="item item-6">
+          <img src="./static/images/samplequestions_adults/Counting+2_16_0.jpg"
+          alt="Objects increase by 2. Correct: (C)." data-text="Objects increase by 2. Correct: (C)."/>
+        </div>
+        <div class="item item-7">
+          <img src="./static/images/samplequestions_adults/Counting-2_42_2.jpg" 
+          alt="Objects decrease by 2. Correct: (C)." data-text="Objects decrease by 2. Correct: (C)."/>
+        </div>
+        <div class="item item-8">
+          <img src="./static/images/samplequestions_adults/Counting+2_16_1_single.jpg" 
+          alt="Objects increase by 2. Correct: (A)." data-text="Objects increase by 2. Correct: (A)."/>
+        </div>
+        <div class="item item-9">
+          <img src="./static/images/samplequestions_adults/Counting-2_42_2_single.jpg" 
+          alt="Objects decrease by 2. Correct: (A)." data-text="Objects decrease by 2. Correct: (A)."/>
+        </div>
+        <div class="item item-10">
+          <img src="./static/images/samplequestions_adults/Countingd2_27_2.jpg" 
+          alt="Objects are divided by 2. Correct: (B)." data-text="Objects are divided by 2. Correct: (B)."/>
+        </div>
+        <div class="item item-11">
+          <img src="./static/images/samplequestions_adults/ReflectX_6_1.jpg" 
+          alt="Objects are reflected on the x-axis. Correct: (B)." data-text="Objects are reflected on the x-axis. Correct: (B)."/>
+        </div>
+        <div class="item item-12">
+          <img src="./static/images/samplequestions_adults/2DRotation+90_27_0.jpg" 
+          alt="Objects are rotated 90 degrees clockwise. Correct: (C)." data-text="Objects are rotated 90 degrees clockwise. Correct: (C)."/>
+        </div>
+        <div class="item item-13">
+          <img src="./static/images/samplequestions_adults/2DRotation+135_25_2.jpg" 
+          alt="Objects are rotated 135 degrees clockwise. Correct: (B)." data-text="Objects are rotated 135 degrees clockwise. Correct: (B)."/>
+        </div>
+        <div class="item item-14">
+          <img src="./static/images/samplequestions/2DRotation180_28_2_single.jpg" 
+          alt="Objects are rotated 180 degrees. Correct: (A)." data-text="Objects are rotated 180 degrees. Correct: (A)."/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<h2 class="subtitle has-text-centered">
+  <span class="try">Solved all the KiVA samples above?</span> Scroll to see samples of KiVA-adults, which is solvable by adults but not young children. <br>Click on the image to reveal the correct answer.
 </h2>
 
 <script>
@@ -345,19 +412,19 @@
           <p>
             A “visual analogy” is an abstract rule inferred from one image and applied to another. 
             While benchmarks exist for testing visual reasoning in LMMs, they require advanced skills and omit basic visual analogies that 
-            even young children can make. Inspired by developmental psychology, we propose a new benchmark of 1,400 visual transformations 
-            of everyday objects to test LMMs on visual analogical reasoning and compare them to children and adults. We structure the 
-            evaluation into three stages: identifying <i>what</i> changed (e.g., color, number, etc.), <i>how</i> it changed (e.g., added one object),
-            and <i>applying the rule</i> to new scenarios. 
+            even young children can make. Inspired by developmental psychology, we propose Kid-inspired Visual Analogies (KiVA), composed of 
+            4,300 visual transformations of everyday objects to test LMMs on visual analogical reasoning and compare them to children and adults. 
+            We structure the evaluation into three stages: identifying <i>what</i> changed (e.g., color, number, etc.), <i>how</i> it changed 
+            (e.g., added one object),and <i>applying the rule</i> to new scenarios. 
           </p>
           <p>
-            Our findings show that while models like GPT-4V, LLaVA-1.5, and MANTIS identify the “what” effectively, they struggle with 
-            quantifying the “how” and extrapolating this rule to new objects. In contrast, children and adults exhibit much stronger 
-            analogical reasoning at all three stages. Additionally, the strongest tested model, GPT-4V, performs better in tasks 
-            involving simple surface-level visual attributes like color and size, correlating with quicker human adult response times. 
-            Conversely, more complex tasks such as number, rotation, and reflection, which necessitate extensive cognitive processing 
-            and understanding of extrinsic spatial properties in the physical world, present more significant challenges. Altogether, 
-            these findings highlight the limitations of training models on data that primarily consists of 2D images and text.
+            Our findings show that while GPT-o1, GPT-4V, LLaVA-1.5, and MANTIS identify the “what” effectively, they struggle with quantifying 
+            the “how” and extrapolating this rule to new objects. In contrast, children and adults exhibit much stronger analogical reasoning at 
+            all three stages. Additionally, the strongest tested model, GPT-o1, performs better in tasks involving simple surface-level visual 
+            attributes like color and size, correlating with quicker human adult response times. Conversely, more complex tasks such as number, 
+            rotation, and reflection, which necessitate extensive cognitive processing and understanding of extrinsic spatial properties in the 
+            physical world, present more significant challenges. Altogether, these findings highlight the limitations of training models on data 
+            that primarily consists of 2D images and text.
           </p>
         </div>
       </div>
@@ -384,29 +451,56 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3">Our Findings</h2>
     <div class="body" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-      <img id="teaser" src="./static/images/figure4_data.jpg" alt="Figure 3 Pipeline" style="width:95%; height: auto;">
+      <img id="teaser" src="./static/images/spider_horizontal.png" alt="Spider.Results" style="width:95%; height: auto;">
       <h2 class="subtitle has-text-centered">
-        <span class="kiva-results"></span> Models get worse with increasing reasoning complexity, unlike humans. 
-        <br>Model performance also depends on visual domain.
+        <span class="kiva-results"></span> Models' visual extrapolation performance depends on visual domain.
+        <br>Models show weaker performance in the number and spatial domains, unlike humans.
       </h2>
     </div>
+    <br>
     <br>
     <br>
     <div class="body" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-      <img id="teaser" src="./static/images/RT.png" alt="Figure 3 Pipeline" style="width:95%; height: auto;">
+      <img id="teaser" src="./static/images/figure4_data.png" alt="Results" style="width:95%; height: auto;">
+      <br>
       <h2 class="subtitle has-text-centered">
-        <span class="kiva-results"></span> GPT-4V's performance correlates with human adults' response times.
+        <span class="kiva-results"></span> Models get worse with increasing reasoning complexity from verbal description to visual extrapolation in KiVA, unlike humans.
       </h2>
     </div>
+    <br>
     <br>
     <br>
     <div class="body" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-      <img id="teaser" src="./static/images/ExtraOnly.png" alt="Figure 3 Pipeline" style="width:95%; height: auto;">
-      <h2 class="subtitle has-text-centered">
-        <span class="kiva-results"></span> Without prior verbal questions, adults respond slower, children and 
-        <br>our best-performing model GPT-4V performed worse in visual extrapolation.
+      <img id="teaser" src="./static/images/inconsistency.png" alt="Results" style="width:95%; height: auto;">
+      <br>
+      <h2 class="subtitle has-text-centered"> 
+        <span class="kiva-results"></span> Models get more inconsistent (choosing different choices that are randomized in order within the same trial) with increasing reasoning complexity.
       </h2>
     </div>
+    <br>
+    <br>
+    <br>
+    <div class="body" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+      <img id="teaser" src="./static/images/CI_verbal.png" alt="Results" style="width:95%; height: auto;">
+      <br>
+      <h2 class="subtitle has-text-centered"> 
+        <span class="kiva-results"></span> Successful visual extrapolation is contingent on solving verbal classification or specification correctly when models are solving KiVA above chance level (refer to GPT-o1 in all domains and GPT-4V in color and size domains).
+      </h2>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="body" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+      <img id="teaser" src="./static/images/corr.png" alt="Correlation" style="width:95%; height: auto;">
+      <br>
+      <h2 class="subtitle has-text-centered">
+        <span class="kiva-results"></span> In the visual extrapolation of KiVA, GPT-o1's error scores correlates with children's error scores and adults' response times.
+      </h2>
+    </div>
+    <br>
+    <br>
+    <br>
+
   </div>
 </section>
 <!--/ Results -->
@@ -550,11 +644,14 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{yiu2024kiva,
-      title={Kiva: Kid-inspired visual analogies for testing large multimodal models},
-      author={Yiu, Eunice and Qraitem, Maan and Wong, Charlie and Majhi, Anisa Noor and Bai, Yutong and Ginosar, Shiry and Gopnik, Alison and Saenko, Kate},
-      journal={arXiv preprint arXiv:2407.17773},
-      year={2024}
+    <pre><code>@inproceedings{
+      yiu2025kiva,
+      title={Ki{VA}: Kid-inspired Visual Analogies for Testing Large Multimodal Models},
+      author={Eunice Yiu and Maan Qraitem and Anisa Noor Majhi and Charlie Wong and Yutong Bai and Shiry Ginosar and Alison Gopnik and Kate Saenko},
+      booktitle={The Thirteenth International Conference on Learning Representations},
+      year={2025},
+      url={https://openreview.net/forum?id=vNATZfmY6R}
+      }
     }</code></pre>
   </div>
 </section>
